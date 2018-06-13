@@ -1,0 +1,11 @@
+version: '3'
+services:
+  app:
+    build: .
+    environment:
+      - RAILS_ENV=development
+    ports:
+      - 3000:3000
+    command: bin/rails server --binding=0.0.0.0 --port=3000
+    volumes:
+      - ./:/app
