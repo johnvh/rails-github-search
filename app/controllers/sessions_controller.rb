@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
     token = github.get_token(params[:code]).token
     user = Github.new(oauth_token: token).users.get.body
     session.merge! token: token, user: {name: user.name}
-    redirect_to root_url, notice: 'Signed in'
+    redirect_to github_home_url, notice: 'Signed in'
   end
 
   private

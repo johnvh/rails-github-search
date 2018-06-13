@@ -1,0 +1,55 @@
+<%= form_tag({controller: 'github', action: 'home'}, method: 'get', class: 'pa3') do %>
+  <div class="measure">
+    <%= label_tag :query, 'Search term:',
+          class: 'f6 b db mb2'
+    %>
+
+    <div class="flex">
+      <%= text_field_tag :query, params[:query],
+            class: 'input-reset ba b--black-20 pa2 mb2 db w-100'
+      %>
+      <%= submit_tag "Search",
+            class: 'button-reset ph3 pv2 ba b--black white bg-mid-gray pointer f6 dib'
+      %>
+    </div>
+  </div>
+<% end %>
+
+<% unless @repos.empty? %>
+  <ol class="list ph2">
+    <% @repos.each do |repo| %>
+      <li class="flex pb3 mb3 bb b--light-silver">
+
+        <img src="<%= repo.owner.avatar_url %>" width="50" height="50">
+
+        <div class="ml3 flex-auto">
+          <p class="fr ma0"><%= repo.language %></p>
+
+          <h3 class="f4 mt0 mb2">
+            <a href="<%= repo.html_url %>">
+              <%= repo.full_name %>
+            </a>
+          </h3>
+
+          <p class="mv2"><%= repo.description %></p>
+
+          <div>
+            <dl class="f6 lh-title mv2 dib mr2">
+              <dt class="dib b">Stars:</dt>
+              <dd class="dib ml0 gray">
+                <%= number_with_delimiter repo.stargazers_count %>
+              </dd>
+            </dl>
+            <dl class="f6 lh-title mv2 dib">
+              <dt class="dib b">Forks:</dt>
+              <dd class="dib ml0 gray">
+                <%= number_with_delimiter repo.forks_count %>
+              </dd>
+            </dl>
+          </div>
+        </div>
+
+      </li>
+    <% end %>
+  </ol>
+<% end %>
