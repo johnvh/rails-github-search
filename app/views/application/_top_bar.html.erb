@@ -1,0 +1,23 @@
+<nav class="flex items-baseline bb b--light-gray pb2">
+  <h1 class="black f5 mr3 dib flex-auto">Github Search</h1>
+  <div>
+    <% if logged_in? %>
+      <span class="f6 light-silver i mr3">
+        Hello <%= current_user['name'] %>
+      </span>
+      <a class="f6 link dim br2 ph3 pv2 mb2 dib white bg-mid-gray"
+        href="<%= logout_path %>"
+        title="Logout"
+      >
+        Logout
+      </a>
+    <% else %>
+      <a class="f6 link dim br2 ph3 pv2 mb2 dib white bg-mid-gray"
+        href="<%= login_path %>"
+        title="Login"
+      >
+        Login
+      </a>
+    <% end %>
+  </div>
+</nav>
