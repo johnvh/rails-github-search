@@ -1,0 +1,8 @@
+development:
+  client_id: 2d17cb5504095abb3247
+  client_secret: e2b818b90ffa8c9e50f8fbab102042f7d7e02b50
+production:
+  client_id: <%= ENV['GITHUB_CLIENT_ID'] %>
+  client_secret: <%= ENV['GITHUB_CLIENT_SECRET'] %>
+
+

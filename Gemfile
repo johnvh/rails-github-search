@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'github_api', '0.18.2'
 gem 'tachyons-rails', '4.9.0'
 
 group :development, :test do
