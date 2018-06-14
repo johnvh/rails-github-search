@@ -8,7 +8,7 @@ class GithubController < ApplicationController
                  permitted_params.to_h.symbolize_keys
                )
              else
-               []
+               nil
              end
   end
 

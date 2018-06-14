@@ -16,7 +16,12 @@
   </div>
 <% end %>
 
-<% unless @repos.empty? %>
+<% if @repos.present? && @repos.body.items.empty? %>
+  <p class="i ph2">
+    No results for "<span class="b"><%= permitted_params[:query] %>"</span>
+  </p>
+
+<% elsif @repos.present? %>
   <ol class="list ph2">
     <% @repos.body.items.each do |repo| %>
       <li class="flex pb3 mb3 bb b--light-silver">
